@@ -272,6 +272,30 @@ local GetFlag, SetFlag, CheckFlag do
 	end)
 end
 
+local function removeUIGradients(parent)
+    for _, child in ipairs(parent:GetChildren()) do
+        if child:IsA("UIGradient") then
+            child:Destroy()
+        else
+            removeUIGradients(child)
+        end
+    end
+end
+
+local function setHubBackgroundColor()
+    local redzLibrary = game.CoreGui:FindFirstChild("Weshky Autofarm")
+    if redzLibrary then
+        local hubImageButton = redzLibrary:FindFirstChild("Hub")
+        if hubImageButton and hubImageButton:IsA("ImageButton") then
+            hubImageButton.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+        else
+            
+        end
+    else
+        
+    end
+end
+
 local ScreenGui = Create("ScreenGui", CoreGui, {
 	Name = "Weshky Autofarm",
 }, {
@@ -425,6 +449,8 @@ AddEle("Gradient", function(parent, props, ...)
 	local New = InsertTheme(SetProps(Create("UIGradient", parent, {
 		Color = Theme["Color Hub 1"]
 	}), props), "Gradient")
+    removeUIGradients(game.CoreGui)
+    setHubBackgroundColor()
 	return New
 end)
 
@@ -556,6 +582,8 @@ function redzlib:SetTheme(NewTheme)
 	table.foreach(redzlib.Instances, function(_,Val)
 		if Val.Type == "Gradient" then
 			Val.Instance.Color = Theme["Color Hub 1"]
+            removeUIGradients(game.CoreGui)
+            setHubBackgroundColor()
 		elseif Val.Type == "Frame" then
 			Val.Instance.BackgroundColor3 = Theme["Color Hub 2"]
 		elseif Val.Type == "Stroke" then
@@ -610,6 +638,9 @@ function redzlib:MakeWindow(Configs)
 		Rotation = 45
 	})MakeDrag(MainFrame)
 	
+
+    removeUIGradients(game.CoreGui)
+    setHubBackgroundColor()
 	local MainCorner = Make("Corner", MainFrame)
 	
 	local Components = Create("Folder", MainFrame, {
@@ -1879,3 +1910,4 @@ function redzlib:MakeWindow(Configs)
 end
 
 return redzlib
+
