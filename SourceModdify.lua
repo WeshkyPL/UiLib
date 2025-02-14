@@ -11,7 +11,7 @@ local PlayerMouse = Player:GetMouse()
 local redzlib = {
 	Themes = {
 		Darker = {
-			["Color Hub 1"] = Color3.fromRGB(21, 21, 21),
+			["Color Hub 1"] = Color3.fromRGB(21, 21, 21)
 
 			}),
 			["Color Hub 2"] = Color3.fromRGB(30, 30, 30),
