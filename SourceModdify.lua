@@ -387,7 +387,15 @@ AddEle("Corner", function(parent, CornerRadius)
 	return New
 end)
 
-
+AddEle("Stroke", function(parent, props, ...)
+	local args = {...}
+	local New = InsertTheme(SetProps(Create("UIStroke", parent, {
+		Color = args[1] or Theme["Color Stroke"],
+		Thickness = args[2] or 1,
+		ApplyStrokeMode = "Border"
+	}), props), "Stroke")
+	return New
+end)
 
 AddEle("Button", function(parent, props, ...)
 	local args = {...}
