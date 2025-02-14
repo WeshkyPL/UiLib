@@ -132,6 +132,8 @@ local SetProps, SetChildren, InsertTheme, Create do
 	pcall(Save, "redz library V5.json")
 end
 
+
+
 local Funcs = {} do
 	function Funcs:InsertCallback(tab, func)
 		if type(func) == "function" then
@@ -271,7 +273,7 @@ local GetFlag, SetFlag, CheckFlag do
 end
 
 local ScreenGui = Create("ScreenGui", CoreGui, {
-	Name = "redz Library V5",
+	Name = "Weshky Autofarm",
 }, {
 	Create("UIScale", {
 		Scale = UIScale,
